@@ -1,0 +1,128 @@
+/* Variables CSS para la paleta Cian y Naranja, ahora más saturados y brillantes */
+:root {
+    --color-fondo-claro: #CFE2F3; /* Azul muy claro, casi blanco */
+    --color-fondo-oscuro: #1A759F; /* Azul intenso, como el agua profunda */
+    --color-cian-principal: #00B4D8; /* Cian brillante y llamativo */
+    --color-naranja-acento: #FF884D; /* Naranja rojizo, más cálido e intenso */
+    --color-texto-oscuro: #333333;
+    --color-texto-claro: #FFFFFF;
+    --color-borde-juego: #0096C7; /* Cian más oscuro para el contraste del borde */
+    --color-sombra: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-oscuro);
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--color-naranja-acento); /* Título en naranja para que resalte */
+    font-size: 3.5em;
+    margin-bottom: 25px;
+    text-shadow: 3px 3px 5px var(--color-sombra);
+    letter-spacing: 2px;
+}
+
+#info {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: var(--color-fondo-oscuro); /* Texto informativo en azul oscuro */
+    background-color: var(--color-texto-claro);
+    padding: 12px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#juego-gato {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 8px;
+    border: 6px solid var(--color-naranja-acento); /* Borde naranja intenso */
+    background-color: var(--color-fondo-oscuro);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px var(--color-sombra);
+    padding: 10px;
+}
+
+.celda {
+    width: 120px;
+    height: 120px;
+    background-color: var(--color-fondo-claro); /* Fondo de celda claro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5.5em;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.celda:hover:empty {
+    background-color: #A3D4E9; /* Cian sutilmente más oscuro al pasar el ratón */
+    transform: scale(1.05);
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.25), 0 0 18px var(--color-cian-principal);
+}
+
+/* --- ESTILOS DE SÍMBOLOS CORREGIDOS --- */
+
+/* La celda debe tener el texto, solo cambiamos el color y el fondo basado en el atributo */
+
+.celda[data-content="X"] {
+    color: var(--color-cian-principal); /* X en Cian Brillante */
+    background-color: #E6F5FF; /* Fondo muy claro para X */
+    cursor: default;
+    /* Efecto de levantamiento sutil para celdas ocupadas */
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.celda[data-content="O"] {
+    color: var(--color-naranja-acento); /* O en Naranja Intenso */
+    background-color: #FFF0E6; /* Fondo muy claro para O */
+    cursor: default;
+    /* Efecto de levantamiento sutil para celdas ocupadas */
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* -------------------------------------- */
+
+#reiniciar {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    margin-top: 40px;
+    cursor: pointer;
+    background-color: var(--color-naranja-acento);
+    color: var(--color-texto-claro);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#reiniciar:hover {
+    background-color: #FF9B66; /* Naranja ligeramente más claro al pasar el ratón */
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+#reiniciar:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
